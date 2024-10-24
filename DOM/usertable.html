@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Table</title>
+        <style>
+          button,label{
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <form name="form">
+            <legend>Personal Informations </legend>
+                <label for="id">Id</label>
+                <input type="text" name="id" placeholder=" Enter Your name" id="id">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter Your Name" id="name">
+                <label for="age">Age</label>
+                <input type="text" name="age" placeholder="Enter Your Age" id="age">
+                <label for="gpa">gpa</label>
+                <input  type="text" name="gpa" placeholder=" Enter Your Gpa " id="gpa">
+                <button id="er">submit</button>
+        </form>
+        <script>
+            let data=[];
+            const add=document.getElementById("er");
+            add.addEventListener("click",function(e){
+                e.preventDefault();
+                const id=document.getElementById("id").value;
+                const name=document.getElementById("name").value;
+                const age=document.getElementById("age").value;
+                const gpa=document.getElementById("gpa").value;
+                alert("hi"+id+name+age+gpa); 
+                let person={
+                    Id:id,
+                    Name:name,
+                    Age:age,
+                    Gpa:gpa
+                }
+                data.push(person);
+                console.log("data"+data)
+            });
+        </script>
+    </body>
+</html>
