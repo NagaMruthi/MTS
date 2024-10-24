@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Account Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+    }
+    .container {
+      margin: 20px 0;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bank Account Management</h1>
+  <div class="container">
+    <label for="accountNumber">Account Number:</label>
+    <input type="text" id="accountNumber" />
+
+    <label for="accountHolderName">Account Holder Name:</label>
+    <input type="text" id="accountHolderName" />
+
+    <label for="initialBalance">Initial Balance:</label>
+    <input type="number" id="initialBalance" />
+
+    <button onclick="createAccount()">Create Account</button>
+  </div>
+
+  <div class="container">
+    <label for="depositAmount">Deposit Amount:</label>
+    <input type="number" id="depositAmount" />
+    <button onclick="deposit()">Deposit</button>
+  </div>
+
+  <div class="container">
+    <label for="withdrawAmount">Withdraw Amount:</label>
+    <input type="number" id="withdrawAmount" />
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+
+  <div class="container">
+    <button onclick="showBalance()">Show Balance</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    class BankAccount {
+      constructor(accountNumber, accountHolderName, initialBalance = 0) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = initialBalance;
+      }
+
+      deposit(amount) {
+        if (amount > 0) {
+          this.balance += amount;
+          return `Deposited $${amount}. New balance is $${this.balance}.`;
+        } else {
+          return 'Deposit amount must be positive.';
+        }
+      }
+
+      withdraw(amount) {
+        if (amount > 0) {
+          if (amount <= this.balance) {
+            this.balance -= amount;
+            return `Withdrew $${amount}. New balance is $${this.balance}.`;
+          } else {
+            return 'Insufficient funds.';
+          }
+        } else {
+          return 'Withdrawal amount must be positive.';
+        }
+      }
+
+      getBalance() {
+        return `Current balance is $${this.balance}.`;
+      }
+    }
+
+    let account;
+
+    function createAccount() {
+      const accountNumber = document.getElementById('accountNumber').value;
+      const accountHolderName = document.getElementById('accountHolderName').value;
+      const initialBalance = parseFloat(document.getElementById('initialBalance').value);
+
+      account = new BankAccount(accountNumber, accountHolderName, initialBalance);
+      document.getElementById('result').innerText = `Account created with initial balance of $${initialBalance}.`;
+    }
+
+    function deposit() {
+      const amount = parseFloat(document.getElementById('depositAmount').value);
+      if (account) {
+        const message = account.deposit(amount);
+        document.getElementById('result').innerText = message;
+      } else {
+        document.getElementById('result').innerText = 'Please create an account first.';
+      }
+    }
+
+    function withdraw() {
+      const amount = parseFloat(document.getElementById('withdrawAmount').value);
+      if (account) {
+        const message = account.withdraw(amount);
+        document.getElementById('result').innerText = message;
+      } else {
+        document.getElementById('result').innerText = 'Please create an account first.';
+      }
+    }
+
+    function showBalance() {
+      if (account) {
+        document.getElementById('result').innerText = account.getBalance();
+      } else {
+        document.getElementById('result').innerText = 'Please create an account first.';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- Write a program to find ( remove the ) duplicate elements from an array of
+ elements and display the unique elements  -->
+ <!DOCTYPE html>
+ <html>
+        <head>
+            <title>
+                Remove the  duplicate elements from an array
+            </title>
+        </head>
+        <body>
+            <script>
+                let array=[11,11,55,6,8,3,6,8];
+                function Remove(arr){
+                    return arr.filter((item, index) => arr.indexOf(item) === index);
+                };
+                const result=Remove(array);
+                console.log(result);
+            </script>
+        </body>
+ </html>
+ <!-- let uniqueArray = [];
+ for (let i = 0; i < arr.length; i++) {
+     if (uniqueArray.indexOf(arr[i]) === -1) {
+         uniqueArray.push(arr[i]); // Add to uniqueArray if it's not a duplicate
+     }
+ } -->

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>onchange</title>
+    </head>
+    <body>
+        <h1>Google Translation Example</h1>
+        <select id="kl" onchange="abc()">
+            <option value="Hi welcome to Google translation">English</option>
+            <option value="హాయ్, గూగుల్ అనువాదంలో స్వాగతం">TELUGU</option>
+            <option value="नमस्ते, Google अनुवाद में आपका स्वागत है">HINDI</option>
+            <option value=",">Dutch</option>
+            <option value="Bonjour, bienvenue dans la traduction Google">FRANCH</option>
+        </select>
+        <h1 id="translation">welcome to Google translation</h1>
+        <script>
+        function abc(){
+            const inputs=document.getElementById("kl").value;
+            alert("Hi"+inputs);
+            document.getElementById("translation").innerHTML=inputs;
+        }
+        </script>
+    </body>
+</html>

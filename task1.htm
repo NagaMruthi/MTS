@@ -1,0 +1,48 @@
+<!-- Implement login functionality take username and password cross check it
+by username = Admin , password = Admin@123 . If it matches then print
+“login success“ otherwise print “ incorrect username or password “ . If the
+username is correct then only check the password -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div>
+            <lable>Admin</lable>
+            <input type="text" placeholder="Enter Valid Details" id="user">
+            <br></br>
+            <lable>Password</lable>
+            <input type="text" placeholder="Enter Valid Password" id="password">
+            <br></br>
+            <p id="message"></p>
+            <button onclick="abc()">login</button> 
+        </div>
+        <script>
+            // get input values
+            var admin=document.getElementById("user");
+            var password=document.getElementById("password");
+            var message=document.getElementById("message");
+            // I have take this values
+            var correctUsername = "Admin";
+            var correctPassword = "Admin@123";
+            //event
+            function abc(){
+                if(correctUsername===admin.value){
+                    if(correctPassword===password.value){
+                        message.innerHTML="Login success"
+                        message.style.color="green"
+                    }
+                    else{
+                        message.innerHTML="Incorrect password";
+                        message.style.color="black"
+                    }
+                }
+                else{
+                    message.innerHTML="Incorrect UserName"; 
+                     message.style.color="red"
+                }
+            }
+        </script>
+    </body>
+</html>

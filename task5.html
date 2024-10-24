@@ -1,0 +1,67 @@
+ <!-- 5.Implement Loan object with properties as follows
+● loanAmount
+● interestRate
+● loanTerm
+Methods :- calculateMonthlyPayment ( to be paid as EMI ) ,
+checkLoanStatus ( calculate the loan status such as how many emis are
+paid what is the remaining amount left to clear the loan including interest ) -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EMI</title>
+    </head>
+    <body>
+        <!-- <form for="name" onclick="check()">  -->
+            <label name="loanAmount">Lone Amount:</label>
+            <input placeholder="loanAmount" id="loanAmount" type="text" name="loanAmount">
+            <br></br>
+            <label name="interestRate"> InterestRate(%):</label>
+            <input placeholder="interestRate" id="interestRate" type="text" name="interestRate">
+            <br></br>
+            <label name="loanTerm">loanTerm:</label>
+            <input type="text" placeholder="loanTerm" id="loanTerm" name="loanTerm">
+            <br></br>
+              <label>
+            <input type="checkbox" id="agreeConditions" required>
+             I agree to all conditions
+             </label>
+            <br></br>
+            <label>
+            <button onclick="check()">submit</button>
+            </label>
+         <!-- </form>  -->
+        <span id="kl"></span>
+        <script>
+            var emi;
+            let Emi=document.getElementById("kl");
+            function check(){
+                let loanAmount=document.getElementById("loanAmount").value;
+                let interestRate=document.getElementById("interestRate").value;
+                let loanTerm=document.getElementById("loanTerm").value;
+                let object={
+                    "loanAmount":loanAmount,
+                    "interestRate":interestRate,
+                    "loanTerm":loanTerm
+                }
+                console.log(object); 
+                // p*r*(1+r)^n/[(1+r)^n-1]
+                const p=object.loanAmount;//200
+                const r=object.interestRate;//2
+                const n=object.loanTerm;//12
+                const monthly=(r/100)/n;
+                const power=Math.pow(1+monthly,n);
+                emi=(p*monthly*power)/(power-1);
+                var paid=0;
+                if(paid<n){
+                    paid++;
+                }
+                const remainingEmis=n-paid
+                // const RemainingAmount=2;
+                const totalPaid = emi* paid;
+                const totalAmountToBePaid = emi * n; // Total amount to be paid
+                const remainingAmount = totalAmountToBePaid - totalPaid;
+                Emi.innerHTML="loan:"+p+"interest:"+r+"months:"+n+"Emi:"+parseFloat(emi)+"Total paid:"+emi+"remainingEmis:"+remainingEmis+"remainingAmount:"+remainingAmount;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loane</title>
+                <!-- Implement LoanManager object that can manage multiple loan objects and
+                perform operations like approving or rejecting loan applications ( separate
+                methods for applying loan , rejecting / approving loan as per some
+                eligibility criteria such as employee monthly income >= 30 k per month ,
+                need to have minimum balance amount in his account  -->
+    </head>
+    <body>
+        <h1>Loan Application</h1>
+        <input type="text" id="name" placeholder="User Name" required>
+        <input type="number" id="balance" placeholder="Account Balance" required>
+        <input type="number" id="income" placeholder="Monthly Income" required>
+        <input type="text" id="accountNumber" placeholder="Account Number" required>
+        <button onclick="applyForLoan()">Submit</button>
+        <script>
+             function LoanManager() {
+            this.loans = [];
+
+            this.applyForLoan = function(name, balance, accountNumber, income) {
+                if (income >= 30000 && balance >= 5000) {
+                    alert("Loan is approved");
+                    this.loans.push({
+                        Name: name,
+                        Balance: balance,
+                        AccountNumber: accountNumber,
+                        Income: income,
+                        Status: "Approved"
+                    });
+                } else {
+                    alert("Loan is rejected due to insufficient income or balance.");
+                    this.loans.push({
+                        Name: name,
+                        Balance: balance,
+                        AccountNumber: accountNumber,
+                        Income: income,
+                        Status: "Rejected"
+                    });
+                }
+            };
+        } 
+        function applyForLoan() {
+            const name = document.getElementById("name")
+            const balance = parseFloat(document.getElementById("balance").value);
+            const accountNumber = document.getElementById("accountNumber").value;
+            const income = parseFloat(document.getElementById("income").value);
+
+            const loanManager = new LoanManager();
+            loanManager.applyForLoan(name, balance, accountNumber, income);
+            console.log(loanManager.loans);
+        }
+           
+        </script>
+    </body>
+</html>

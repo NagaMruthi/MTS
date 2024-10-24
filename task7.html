@@ -1,0 +1,54 @@
+<!-- Task7 Implement a program that checks if a student is eligible for a scholarship
+based on their GPA . If GPA is >= 7.5 then student is eligible for scholarship
+else it will be rejected . -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Student Scholarship Form
+        </title>
+    </head>
+    <body>
+        <div>
+            <lable name="name">Student Name:</lable>
+            <input name="name" type="text" placeholder="Enter Your Name" id="name">
+            <br></br>
+            <lable name="age">Student Age:</lable>
+            <input name="age" type="text" placeholder="Enter Your Age" id="age">
+            <br></br>
+            <lable name="gpa">Student Gpa:</lable>
+            <input name="gpa" type="text" placeholder="Enter Your Gpa" id="gpa">
+            <br></br>
+            <button onclick="abc()">submit</button>
+            <br></br>
+            <p id="kl"></p>
+        </div>
+        <script>
+            function abc(){
+                const Name=document.getElementById("name").value;
+                const Age=document.getElementById("age").value;
+                const GPA=document.getElementById("gpa").value;
+                const inputs=document.getElementById("kl");
+                // const i=document.getElementById("lk");
+                let isValid=true;
+                if(name===""){
+                    // i.innerHTML="Please fill out all fields correctly."
+                    isValid=false;
+                };
+                if(Age===""||/\d/){
+                    isValid=false;
+                }
+                if(GPA>=7.5){
+                    inputs.innerHTML=" eligible for scholarship";
+                    inputs.style.color="green";
+                }
+                else
+                {
+                    inputs.innerHTML="not eligible for scholarship" 
+                    inputs.style.color="red";  
+                }
+
+            }
+        </script>
+    </body>
+</html>

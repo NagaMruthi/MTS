@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+       button, label{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login to Instagram</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <br></br>
+            <button type="submit">Login</button>
+            <div id="errorMessages"></div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const password = document.getElementById('password').value;
+            const errorMessages = document.getElementById('errorMessages');
+            errorMessages.innerHTML = '';
+
+            // Validations
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            const mobileRegex = /^\d{10}$/;
+            const usernameRegex = /^[^\s\d]+$/;
+
+            let isValid = true;
+
+            // Validate username
+            if (!usernameRegex.test(username)) {
+                errorMessages.innerHTML += '<p>Username must not contain spaces or digits.</p>';
+                isValid = false;
+            }
+
+            // Validate email
+            if (!emailRegex.test(email)) {
+                errorMessages.innerHTML += '<p>Email must be a valid Gmail address.</p>';
+                isValid = false;
+            }
+
+            // Validate mobile number
+            if (!mobileRegex.test(mobile)) {
+                errorMessages.innerHTML += '<p>Mobile number must be exactly 10 digits.</p>';
+                isValid = false;
+            }
+
+            // Validate password
+            if (!passwordRegex.test(password)) {
+                errorMessages.innerHTML += '<p>Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.</p>';
+                isValid = false;
+            }
+
+            if (isValid) {
+                console.log('Logging in with:', { username, email, mobile, password });
+                alert('Login successful!');
+            }
+        });
+    </script>
+</body>
+</html>

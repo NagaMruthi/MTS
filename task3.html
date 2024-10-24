@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Implement a function that actualPrice → take cost price and apply 20 %
+        discount on cost price , calculate the selling price of a product after
+        applying the discount , display the selling price  -->
+        <title> Display The Original Price Of Product</title>
+    </head>
+    <body>
+        <p id="kl"></p>
+        <script>
+            var i=document.getElementById("kl")
+            function actualPrice(takecost){
+                // DISCOUNT IS 20%;
+                const discount=20;
+                const DCOUNT=(discount/100)*takecost;
+                const finalcostproduct=takecost-DCOUNT;
+                i.innerHTML=finalcostproduct
+                console.log("Product selling price"+finalcostproduct)
+
+            };
+            actualPrice(prompt());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title> Instagram login</title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f0f0f0;
+            }
+           legend{
+            border: 1px solid black;
+           } 
+           label{
+            display: block;
+           }
+           input[type="submit"]{
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+            <form name="login" onsubmit="return abc()">
+                <legend>INSTAGRAM LOGIN PAGE</legend>
+                    <label for="user">User Name:</label>
+                    <input type="text" placeholder="Enter User Name" id="user" name="name">
+                    <p id="user-name-error"></p>
+                    <label for="email">Email:</label>
+                    <input type="text" placeholder="Enter Email" id="email" name="email">
+                    <p id="email-error"></p>
+                    <label>psssword</label>
+                    <input type="text" id="pas"placeholder="Enter password">
+                    <p id="password-error"></p>
+                    <label for="number">Phone Number:</label>
+                    <input type="text" placeholder="Enter Mobile Number" id="number" name="number">
+                    <p id="number-error"></p>
+                    <input type="submit" value="SUBMIT" name="submit">
+            </form>
+        <script>
+            function abc(){
+                const username=document.getElementById("user").value;
+                const email=document.getElementById("email").value;
+                const password=document.getElementById("pas").value;
+                console.log(password);
+                const number=document.getElementById("Number").value;
+                let isvalid=true;
+              
+                //password with 8 chars ,atleast 1 ( upper , lower , digit , special symbol );
+                const upper=/[A-Z]/.test(password);
+                const lower=/[a-z]/.test(password);
+                const digit=/\d/.test(password);
+                if(!upper||lower||digit){
+                    alert("login");
+                    isvalid=false;
+
+                }
+                else{
+                    alert("not")
+                }
+            }
+//             function validatePassword() {
+//     const password = document.getElementById("password").value;
+//     let isValid = true;
+
+//     // Check length
+//     if (password.length < 8) {
+//         document.getElementById("password-error").innerText = "Password must be at least 8 characters long.";
+//         isValid = false;
+//     } else {
+//         // Check for each required character type
+//         const hasUppercase = /[A-Z]/.test(password);
+//         const hasLowercase = /[a-z]/.test(password);
+//         const hasDigit = /\d/.test(password);
+//         const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password); // Adjust special characters as needed
+
+//         if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecialChar) {
+//             document.getElementById("password-error").innerText = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.";
+//             isValid = false;
+//         } else {
+//             document.getElementById("password-error").innerText = "";
+//         }
+//     }
+
+//     return isValid=false; // Return the validation result
+// }
+
+        </script>
+    </body>
+</html> -->

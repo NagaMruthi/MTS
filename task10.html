@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Write a program to sort the array of elements in descending order . -->
+        <title>Sort The Array Of Elements</title>
+    </head>
+    <body>
+        <h1>sort the array of elements in descending order</h1>
+        <div id="hi"></div>
+        <script>
+            function descending(arr){
+                arr.sort((a,b)=>b -a);
+                return arr
+            }
+            let result=descending([20,10,60,89,45]);
+            document.getElementById("hi").innerHTML=result;
+        </script>
+    </body>
+</html>

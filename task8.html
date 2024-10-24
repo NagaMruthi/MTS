@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <title>Fibonacci Series</title>
+                    <!-- Write a program to display fibonacci series in reverse order
+                    ( learn about fibonacci series then implement it ) -->
+    <body>
+        <h1>Fibonacci Series in Reverse Order</h1>
+        <input type="number" placeholder="Staring Number" id="end">
+        <button onclick="abc()">get series</button>
+        <div id="result"></div>
+        <script>
+            function abc(){
+                const end=document.getElementById("end").value;
+                const fibonacci=[];
+                let a=0;b=1;
+                for(let i=0;a<end;i++){
+                    fibonacci.push(a);//0,1,1
+                    let next=a+b;//1,2
+                    a=b
+                    console.log(b)
+                    b=next;
+                }
+                console.log(fibonacci);
+                let reverse=fibonacci.reverse();
+                document.getElementById("result").innerHTML=reverse.join();
+
+            }
+        </script>
+    </body>
+</html>
