@@ -1,0 +1,120 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>CREATING THE  OBJECTS USING FUNCTIONS AND THIS KEY WORD</title>
+    </head>
+   <body>
+    <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your Name">
+            <p id="N"></p>
+            <label for="age">Age:</label>
+            <input type="text" id="age" placeholder="Enter Your Age">
+            <p></p>
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender">
+                <option value="Male" name="gender">
+                    Male
+                </option>
+                <option name="gender" value="Female" >
+                    Female
+                </option>
+            </select>
+            <p></p>
+            <button onclick="Abc()">submit</button>
+    </div>
+    <script>
+        var Arrayofobjects=[];
+        function Abc(){
+            var name=document.getElementById("name").value;
+            var age=document.getElementById("age").value;
+            var gender=document.getElementById("gender").value;
+            alert("hi"+gender);
+            var isvalid=true;
+            if(/\d/.test(name)){
+                document.getElementById("N").innerHTML="you will enter name and numbers";
+
+                isvalid=false;
+
+            }
+            var myobject=new abc(name,age,gender);
+        }
+        function abc(name,age,gender){
+            this.Name=name;
+            this.Age=age;
+            this.Gender=gender;
+        }
+        //using regular expressions
+        
+    </script>
+   </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creating Objects Using Functions and this Keyword</title>
+</head>
+<body>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your Name">
+        <p id="nameError" style="color: red;"></p>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" placeholder="Enter Your Age">
+        <p id="ageError" style="color: red;"></p>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <button onclick="Abc()">Submit</button>
+    </div>
+    
+    <script>
+        var Arrayofobjects = [];
+
+        function Abc() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var gender = document.getElementById("gender").value;
+
+            // Clear previous error messages
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("ageError").innerHTML = "";
+
+            var isValid = true;
+
+            // Validate name
+            if (/\d/.test(name)) {
+                document.getElementById("nameError").innerHTML = "Please enter a valid name without numbers.";
+                isValid = false;
+            }
+
+            // Validate age
+            if (!/^\d+$/.test(age)) {
+                document.getElementById("ageError").innerHTML = "Please enter a valid age (numbers only).";
+                isValid = false;
+            }
+
+            if (isValid) {
+                var myObject = new abc(name, age, gender);
+                Arrayofobjects.push(myObject);
+                alert("Submission successful!"); // or use a better display method
+                // Optionally clear the input fields
+                document.getElementById("name").value = "";
+                document.getElementById("age").value = "";
+                document.getElementById("gender").value = "Male"; // reset to default
+            }
+        }
+
+        function abc(name, age, gender) {
+            this.Name = name;
+            this.Age = age;
+            this.Gender = gender;
+        }
+    </script>
+</body>
+</html>

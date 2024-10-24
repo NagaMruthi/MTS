@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Dom Method
+        </title>
+    </head>
+    <body>
+        <input type="text" id="username">
+        <button name="button" onclick="sample()">capture</button>
+        <p>This is paragraph</p>
+        <script>
+            function sample(){
+                var username=document.getElementById("username");
+                var p=document.getElementsByTagName("p");
+                console.log(p);
+                p[0].style.color="red";
+                p[0].style.fontSize="20px"
+            }
+            var button=document.getElementById("button");
+            console.log(button[0]);
+            button[0].onclick="sample";
+
+        </script>
+    </body>
+</html>

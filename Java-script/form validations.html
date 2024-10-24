@@ -1,0 +1,77 @@
+<!-- Take  other file and add validations  as follows :
+Password should have atleast one upper case, one lower case , one digit.
+email should end with "@gmail.com"
+Mobile number length should be 10 digits exactly .
+Username should not have space -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validations</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form name="Regform" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input placeholder="Enter your fullname" name="Name" id="name" type="text">
+        <p id="name-error" class="error-message"></p>
+
+        <label for="email">Email-id:</label>
+        <input name="email" placeholder="Enter your email" id="email" type="email">
+        <p id="email-error" class="error-message"></p>
+
+        <label for="Password">Enter Password:</label>
+        <input name="Password" placeholder="Password" id="Password" type="password">
+        <p id="password-error" class="error-message"></p>
+
+        <label for="phonenumber">Mobile Number:</label>
+        <input name="phonenumber" placeholder="Enter Your Mobile Number" id="number" type="tel">
+        <p id="number-error" class="error-message"></p>
+
+        <input type="submit" value="Send" name="Submit" />
+    </form>
+
+    <script>
+        function validateForm() {
+            alert("Form is being validated..."); // First alert
+            let isValid = true;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('Password').value;
+            const mobile = document.getElementById('number').value;
+            // Validate Name (Username)
+            if (name === '') {
+                document.getElementById('name-error').innerText = 'Name is required.';
+                isValid = false;
+            } else if (name.includes(' ')) {
+                document.getElementById('name-error').innerText = 'Username should not contain spaces.';
+                isValid = false;
+            }
+
+            // Validate Email
+            if (!email.endsWith('@gmail.com')) {
+                document.getElementById('email-error').innerText = 'Email must end with @gmail.com.';
+                isValid = false;
+            }
+
+            // Validate Password
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+            if (!passwordRegex.test(password)) {
+                document.getElementById('password-error').innerText = 'Password must have at least one uppercase letter, one lowercase letter, and one digit.';
+                isValid = false;
+            }
+
+            // Validate Mobile Number
+            if (mobile.length !== 10 || isNaN(mobile)) {
+                document.getElementById('number-error').innerText = 'Mobile number must be exactly 10 digits.';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

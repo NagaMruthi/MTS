@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fibonacci series in reverse order</title>
+    </head>
+    <body>
+        <script>
+            const number = parseInt(prompt("Enter the number"));
+            let i=0, j=1, L,m=[];
+            for(let K=1;i<=number;K++){
+                m.push(i);
+                L=i+j;
+                i=j;
+                j=L;
+            }   
+            m.reverse();
+            console.log(m.join(", "));
+        </script>
+    </body>
+</html>

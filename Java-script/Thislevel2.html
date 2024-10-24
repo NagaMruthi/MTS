@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Object in this key word</title>
+    </head>
+    <body>
+        <script>
+            //function name is person
+            function person(name,age=12,gender,address,gets){
+                this.Name=name;
+                this.Age=age;
+                this.Address=address;
+                this.Gender=gender
+                this.Gets=gets
+            }
+            // object name is result 
+            const result=new person("maruthi","male","annavaram",function(){
+                console.log(result.age);
+            });
+            console.log(result)
+        </script>
+    </body>
+</html>

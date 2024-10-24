@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Nested-Object
+        </title>
+    </head>
+    <body>
+        <script>
+            const person={
+                fname:"maruthi",
+                lname:"k",
+                age:23,
+                address:{
+                    HNo :"10-32/5d",
+                    street: "XYZ street",
+                    colony:"ABC Colony",
+                    country:{
+                        state:"Telangana",
+                        country:"India"  ,
+                    },
+                },
+            };
+            //using dot notations
+            console.log(person.address.country.state);
+            //array notations
+            var data1="address";
+            console.log(person [data1])//array notations
+
+        </script>
+    </body>
+</html>
