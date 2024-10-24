@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <style>
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reset Password Form</h2>
+    <form>
+        <label for="new-password">New Password:</label>
+        <input type="password" id="new-password" name="new-password" required><br><br>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
+        <span id="copy-error" class="error-message">Copy is restricted</span><br>
+        <span id="paste-error" class="error-message">Paste is restricted</span><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        const inputs = document.querySelectorAll('input[type="password"]');
+        const copyError = document.getElementById('copy-error');
+        const pasteError = document.getElementById('paste-error');
+
+        inputs.forEach(input => {
+            input.addEventListener('copy', function(e) {
+                e.preventDefault();
+                showError(copyError);
+            });
+            input.addEventListener('paste', function(e) {
+                e.preventDefault();
+                showError(pasteError);
+            });
+            input.addEventListener('cut', function(e) {
+                e.preventDefault();
+                showError(copyError);
+            });
+        })
+        function showError(errorElement) {
+            copyError.style.display = 'none';
+            pasteError.style.display = 'none'; 
+            errorElement.style.display = 'inline'; 
+        }
+    </script>
+</body>
+</html>

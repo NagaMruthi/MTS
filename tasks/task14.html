@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            <!-- Create a timestamp for following cases-> dd/mm/yyyy-> hh.mm.ss->
+             create a format saying min ago , month ago , seconds ago ( 1 min ago , 2
+           months ago ) ( real time such as in social media saying after posting
+          anything you can see the timestamp of that post ) .
+             ( For months check with how system counts january month  -->
+              <style>
+                body
+                {
+                    font-family: Arial, sans-serif;
+                    background-color: #f2f2f2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                    label{
+                    display: block;
+                }
+              </style>
+        </title>
+    </head>
+    <body>
+        <label for="date">dd/mm/yyy:</label>
+        <input type="text" id="date"place="19/10/2002" name="date">
+        <label>hh.mm.ss:</label>
+        <input type="text" id="time"place="10.20.10" name="time">
+        <button onclick="abc()">calculate time ago</button>
+        <div id="result"></div>
+        <script>
+            function abc(){
+                const date=document.getElementById("date").value;
+                const time=document.getElementById("time").value;
+                const result=document.getElementById("result");
+                const [day,month,year]=date.split('/');
+                const [hours,minutes,seconds]=time.split('.');
+                const inputdate=new Date(${year}-${month}-${day}T${hours}:${minutes}${seconds});
+                const presentdata=new Date();
+                const years=(presentdata.getFullYear()-inputdate.getFullYear());
+                const months=presentdata.getMonth()-inputdate.getMonth();
+                const days=presentdata.getDate()-inputdate.getDate();
+                const second=presentdata.getSeconds()-inputdate.getSeconds();
+                const minute=presentdata.getMinutes()-inputdate.getMinutes();
+                const hour=presentdata.getHours()-inputdate.getHours();
+                console.log("years:"+years+"months:"+months+"days:"+days+"second:"+second+"minute:"+minute+"hour:"+hour);
+                let displayTime = '';
+                if (years > 0) {
+                    displayTime += `${years} year${years > 1 ? 's' : ''} `;
+                }
+                if (months > 0) {
+                    displayTime += `${months} month${months > 1 ? 's' : ''} `;
+                }
+                if (days > 0) {
+                    displayTime += `${days} day${days > 1 ? 's' : ''} `;
+                }
+                if (hour > 0) {
+                    displayTime += `${hour} hour${hour > 1 ? 's' : ''} `;
+                }
+                if (minute > 0) {
+                    displayTime += `${minute} minute${minute> 1 ? 's' : ''} `;
+                }
+                if (second > 0) {
+                    displayTime += `${second} second${second > 1 ? 's' : ''} `;
+                }
+                if (!displayTime) {
+                    displayTime = 'just now';
+                }
+                result.innerHTML = displayTime + ' ago';
+            }
+        </script>
+    </body>
+</html>
