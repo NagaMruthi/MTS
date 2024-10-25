@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Promise</title>
+    </head>
+    <body>
+        <script>
+            const promise=new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                  resolve("operator scuccessful")  
+                },2000);
+            })
+            //handle promise outcome promise
+            .then((message)=>{
+                console.log(message);
+            }).catch((error)=>{
+               console.error(error)
+            })
+        </script>
+    </body>
+</html>

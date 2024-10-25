@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>pokeman Api</title>
+    </head>
+    <body>
+        <script>
+            const fetchApi=new Promise((resolve,reject)=>{
+                fetch("https://pokeapi.co/api/v2")
+                .then(response=>response.json())
+                .then(data=>resolve(data))
+               .catch(error=>reject(error));
+            });
+            fetchApi.then(pokemon=>{
+                console.log(pokemon)
+            })
+            .catch(error=>{
+            console.error(error);
+            })
+
+        </script>
+    </body>
+</html>
