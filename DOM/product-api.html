@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>Product api</head>
+    <body>
+        <button onclick="abc()">click</button>
+        <script>
+            var x=[];
+            function abc(){
+            const promise=new Promise((reject,resolve)=>{
+                fetch('https://fakestoreapi.com/products')
+            .then(reject=>reject.json())
+            .then(data=>console.log(data))
+            })
+            .then((data)=>{
+                console.log(data);
+                x.push(data);
+            })
+            .catch((error)=>{
+                console.log(error)
+            });
+            genui(x)
+        };
+        function genui(arr){
+            console.clear();
+            console.log("arr"+arr)
+        }
+        </script>
+    </body>
+</html>
