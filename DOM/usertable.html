@@ -6,36 +6,63 @@
         button, label {
             display: block;
         }
+        table,tbody{
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
-        <legend>Personal Information</legend>
-        <label for="id">Id</label>
-        <input type="text" name="id" placeholder="Enter Your Id" id="id">
-        <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Enter Your Name" id="name">
-        <label for="age">Age</label>
-        <input type="text" name="age" placeholder="Enter Your Age" id="age">
-        <label for="gpa">GPA</label>
-        <input type="text" name="gpa" placeholder="Enter Your GPA" id="gpa">
-        <button type="button" onclick="abc()">Submit</button>
+    <legend>Personal Information</legend>
+    <label for="id">Id</label>
+    <input type="text" name="id" placeholder="Enter Your Id" id="id">
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="Enter Your Name" id="name">
+    <label for="age">Age</label>
+    <input type="text" name="age" placeholder="Enter Your Age" id="age">
+    <label for="gpa">GPA</label>
+    <input type="text" name="gpa" placeholder="Enter Your GPA" id="gpa">
+    <button type="button" onclick="abc()">Submit</button>
+    <table>
+        <tbody id="in"></tbody>
+    </table>
     <script>
-        let data = [];
-        
         function abc() {
             const id = document.getElementById("id").value;
             const name = document.getElementById("name").value;
             const age = document.getElementById("age").value;
             const gpa = document.getElementById("gpa").value;  
-            let person = {
+            let person =[ {
                 "Id": id,
                 "Name": name,
                 "Age": age,
                 "Gpa": gpa
-            };
-            
-            data.push(person);
-            console.log("Data array:"+data); 
+            },];
+            genui(person);
+        };
+        function genui(arr){
+            var table=document.getElementById("in");
+            table.innerHTML="";
+            console.clear();
+            console.log(arr);
+        
+            arr.forEach((element,index,array)=>{
+                var tr=document.createElement("tr");
+            var tr1=document.createElement("tr");
+            tr1.style
+            var td=document.createElement("td");
+            var td1=document.createElement("td");
+            var td2=document.createElement("td");
+            var td3=document.createElement("td");
+                td.innerHTML=element.Id
+                tr1.appendChild(td);
+                td1.innerHTML=element.Name
+                tr1.appendChild(td1);
+                td2.innerHTML=element.Age
+                tr1.appendChild(td2);
+                td3.innerHTML=element.Gpa
+                tr1.appendChild(td3);
+                table.appendChild(tr1);
+            })
         }
     </script>
 </body>
